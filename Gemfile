@@ -4,6 +4,7 @@ ruby "2.1.2"
 gem "rails", "4.1.4"
 
 gem "bcrypt", "~> 3.1.7"
+gem "bugsnag"
 gem "coffee-rails", "~> 4.0.0"
 gem "jquery-rails"
 gem "pg"
