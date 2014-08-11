@@ -18,8 +18,12 @@ group :development do
 end
 
 group :development, :test do
-  gem "rspec-rails", "~> 3.0.0"
   gem "factory_girl_rails"
+  gem "rspec-rails", "~> 3.0.0"
+end
+
+group :test do
+  gem "capybara"
 end
 
 group :production do
