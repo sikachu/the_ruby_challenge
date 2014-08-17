@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>TheRubyChallenge</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>The Ruby Challenge</title>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <% if signed_in? %>
+        Welcome, <%= current_user.github_username %>
+      <% else %>
+        <%= link_to "Sign in with GitHub", signin_path %>
+      <% end %>
+    </header>
+    <section id="main">
+      <%= yield %>
+    </section>
+  </body>
 </html>
