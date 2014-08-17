@@ -7,5 +7,8 @@ before_install:
 before_script:
   - psql -c 'create database "the_ruby_challenge_test";' -U postgres
 
+env:
+  - secure: "MEhN/nTkB05rD7vHoln9VevhJhhWto3T6rngru65CdJ0HzWTUTm4bfXSerpVKo695rZTi68+8nIclk5uhG6gzsl3F3ieSUYyvIebKx7jkCe1ATlMMB3PEmgi+iKfSvlceOPmrMqniq0ZKgJ+IgrgvbhYDYRyrPPebzwIPLdbuHY="
+
 addons:
   postgresql: "9.3"
