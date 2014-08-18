@@ -1,9 +1,5 @@
 language: ruby
 
-before_install:
-  - "echo '--colour' > ~/.rspec"
-  - "echo 'gem: --no-document' > ~/.gemrc"
-
 before_script:
   - psql -c 'create database "the_ruby_challenge_test";' -U postgres
 
