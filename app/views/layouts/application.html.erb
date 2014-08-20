@@ -10,6 +10,8 @@
     <header>
       <% if signed_in? %>
         Welcome, <%= current_user.github_username %>
+        |
+        <%= link_to "Sign out", signout_path %>
       <% else %>
         <%= link_to "Sign in with GitHub", signin_path %>
       <% end %>

@@ -26,6 +26,7 @@ end
 group :test do
   gem "capybara"
   gem "codeclimate-test-reporter", require: nil
+  gem "rack_session_access"
 end
 
 group :production do
