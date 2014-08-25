@@ -1,0 +1,7 @@
+<%= simple_form_for @code_challenge do |f| %>
+  <%= f.input :left_code_sample %>
+  <%= f.input :right_code_sample %>
+  <%= f.input :goal, as: :radio_buttons, collection: CodeChallenge::GOALS,
+    label_method: :humanize %>
+  <%= f.button :submit %>
+<% end %>

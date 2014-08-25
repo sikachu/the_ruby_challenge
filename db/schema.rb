@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140811034408) do
+ActiveRecord::Schema.define(version: 20140823204410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "code_challenges", force: true do |t|
+    t.integer  "submitter_id"
+    t.text     "left_code_sample"
+    t.text     "right_code_sample"
+    t.string   "goal"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "code_challenges", ["submitter_id"], name: "index_code_challenges_on_submitter_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "github_user_id",  null: false

@@ -1,0 +1,18 @@
+en:
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+    error_notification:
+      default_message: "Please review the problems below:"
+    options:
+      code_challenge:
+        goal:
+          speed: "Speed"
+          memory_usage: "Memory usage"
+  helpers:
+    submit:
+      code_challenge:
+        create: "Submit code challenge"
