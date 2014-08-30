@@ -1,4 +1,6 @@
 class CodeChallengesController < ApplicationController
+  before_action :validate_user
+
   def show
     @code_challenge = CodeChallenge.find(params[:id])
   end

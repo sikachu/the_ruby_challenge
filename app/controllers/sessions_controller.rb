@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  def new
+  end
+
   def create
     self.current_user = User.find_or_create_by_authentication_hash(auth_hash)
     redirect_to root_path

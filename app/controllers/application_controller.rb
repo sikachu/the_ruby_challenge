@@ -16,4 +16,10 @@ class ApplicationController < ActionController::Base
     @current_user = user
     session[:current_user_id] = user.try(:id)
   end
+
+  def validate_user
+    unless current_user
+      redirect_to signin_path
+    end
+  end
 end
