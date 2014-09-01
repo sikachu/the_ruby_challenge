@@ -1,4 +1,11 @@
 en:
+  activerecord:
+    errors:
+      models:
+        code_challenge:
+          attributes:
+            goal:
+              blank: "must be selected"
   code_challenges:
     create:
       created: "Your code challenge has been submitted."

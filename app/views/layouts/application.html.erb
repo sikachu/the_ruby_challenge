@@ -11,6 +11,10 @@
       <% if signed_in? %>
         Welcome, <%= current_user.github_username %>
         |
+        <%= link_to "My code challenges", code_challenges_path %>
+        |
+        <%= link_to "Submit new", new_code_challenge_path %>
+        |
         <%= link_to "Sign out", signout_path %>
       <% else %>
         <%= link_to "Sign in with GitHub", signin_path %>

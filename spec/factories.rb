@@ -10,4 +10,11 @@ FactoryGirl.define do
       "https://avatars.githubusercontent.com/u/#{github_user_id}?v=2"
     end
   end
+
+  factory :code_challenge do
+    submitter factory: :user
+    left_code_sample "Left Sample!"
+    right_code_sample "Right Sample!"
+    goal "speed"
+  end
 end

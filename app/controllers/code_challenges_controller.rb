@@ -1,8 +1,12 @@
 class CodeChallengesController < ApplicationController
   before_action :validate_user
 
+  def index
+    @code_challenges = CodeChallenge.all
+  end
+
   def show
-    @code_challenge = CodeChallenge.find(params[:id])
+    @code_challenge = CodeChallenge.find_by_slug!(params[:id])
   end
 
   def new

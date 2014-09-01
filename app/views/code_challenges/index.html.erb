@@ -1,0 +1,9 @@
+<h2>My Code Challenges</h2>
+<table>
+  <% @code_challenges.each do |code_challenge| %>
+    <%= content_tag_for :tr, code_challenge do %>
+      <td>Code challenge #<%= code_challenge.slug %></td>
+      <td><%= link_to "View", code_challenge %></td>
+    <% end %>
+  <% end %>
+</table>
