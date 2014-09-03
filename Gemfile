@@ -3,7 +3,9 @@ ruby "2.1.2"
 
 gem "rails", "4.1.5"
 
+gem "autoprefixer-rails"
 gem "bcrypt", "~> 3.1.7"
+gem "bootstrap-sass", "~> 3.2.0"
 gem "bugsnag"
 gem "coffee-rails", "~> 4.0.0"
 gem "jquery-rails"
@@ -23,8 +25,8 @@ end
 group :development, :test do
   gem "factory_girl_rails"
   gem "rspec-rails", "~> 3.0.0"
-  gem "shoulda-matchers", require: false
   gem "pry-byebug"
+  gem "shoulda-matchers", require: false
 end
 
 group :test do
