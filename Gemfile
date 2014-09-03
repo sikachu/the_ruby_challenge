@@ -12,7 +12,7 @@ gem "pg"
 gem "sass-rails", "~> 4.0.3"
 gem "simple_form"
 gem "uglifier", ">= 1.3.0"
-gem "unicorn"
+gem "unicorn-rails"
 
 group :development do
   gem "spring"
