@@ -13,7 +13,7 @@ gem "jquery-rails"
 gem "omniauth-github"
 gem "pg"
 gem "sass-rails", "~> 4.0.3"
-gem "simple_form"
+gem "simple_form", "~> 3.1.0.rc2"
 gem "uglifier", ">= 1.3.0"
 gem "unicorn-rails"
 
