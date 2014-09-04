@@ -17,7 +17,8 @@ class CodeChallengesController < ApplicationController
     @code_challenge = CodeChallenge.new(code_challenge_params)
 
     if @code_challenge.save
-      redirect_to @code_challenge, notice: t(".created")
+      flash[:success] = t(".created")
+      redirect_to @code_challenge
     else
       render :new
     end
