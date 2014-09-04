@@ -9,6 +9,7 @@ feature "User authentication" do
     click_on "Sign in with GitHub"
 
     expect(page).to have_content(user.github_username)
+    expect(page).to have_css('h1', text: "My Code Challenges")
     expect(User.count).to eq 1
   end
 

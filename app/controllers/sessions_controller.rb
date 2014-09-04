@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def create
     self.current_user = User.find_or_create_by_authentication_hash(auth_hash)
-    redirect_to root_path
+    redirect_to code_challenges_path
   end
 
   def destroy
