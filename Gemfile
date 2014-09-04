@@ -3,6 +3,7 @@ ruby "2.1.2"
 
 gem "rails", "4.1.5"
 
+gem "ace-rails-ap"
 gem "active_link_to"
 gem "autoprefixer-rails"
 gem "bcrypt", "~> 3.1.7"

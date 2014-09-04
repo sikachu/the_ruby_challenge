@@ -7,11 +7,14 @@ en:
       mark: '*'
     error_notification:
       default_message: "Please review the problems below:"
+    labels:
+      code_challenge:
+        goal: "Winning criteria"
     options:
       code_challenge:
         goal:
-          speed: "Speed"
-          memory_usage: "Memory usage"
+          speed: "Speed (Code that runs faster wins)"
+          memory_usage: "Memory usage (Code that uses less memory wins)"
   helpers:
     submit:
       code_challenge:
