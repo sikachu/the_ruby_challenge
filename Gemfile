@@ -3,6 +3,7 @@ ruby "2.1.2"
 
 gem "rails", "4.1.5"
 
+gem "active_link_to"
 gem "autoprefixer-rails"
 gem "bcrypt", "~> 3.1.7"
 gem "bootstrap-sass", "~> 3.2.0"

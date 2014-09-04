@@ -1,1 +1,56 @@
-<%= link_to "Submit code challenge", new_code_challenge_path %>
+<% content_for :hero do %>
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Join the challenge!</h1>
+      <p>
+        Be part of this challenge! Submit your code samples of your refactoring
+        that yields better code performance. Your submissions will be used in
+        the upcoming
+        <a href="http://rubykaigi.org/2014/presentation/S-PremSichanugrist" target="_blank">The Ruby Challenge</a>
+        show at
+        <a href="http://rubykaigi.org/2014" target="_blank">RubyKaigi 2014</a>.
+      </p>
+      <p>
+        <%= link_to new_code_challenge_path, class: "btn btn-primary btn-lg", role: "button" do %>
+          Submit your code challenge &raquo;
+        <% end %>
+    </div>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="col-md-4">
+    <h2>The idea</h2>
+    <p>
+      While Ruby doesn't have a "There should be one, and preferably only one
+      way to do it" philosophy like Python, writing the best code using the
+      best algorithm to solve the problem will save you time and money and is
+      going to be better in the long run.
+    </p>
+  </div>
+  <div class="col-md-4">
+    <h2>The presentation</h2>
+    <p>
+      Your submitted code challenges will be presented in a game show format.
+      I'll pick a random contestant from the attendee and ask them to pick
+      which code sample is better in terms of speed or memory usage. Do you
+      think they can spot the better code?
+    </p>
+    <p>
+      <a href="http://rubykaigi.org/2014/presentation/S-PremSichanugrist" class="btn btn-default" role="button">View talk details &raquo;</a>
+    </p>
+ </div>
+  <div class="col-md-4">
+    <h2>Join the show</h2>
+    <p>
+      <strong>Date:</strong> September 20, 2014<br>
+      <strong>Time:</strong> 2:30 PM<br>
+      <strong>Location:</strong> RubyKaigi Hall A<br>
+      <strong>Hashtag:</strong> #TheRubyChallenge</strong>
+    </p>
+    <p>
+      <a href="https://twitter.com/intent/tweet?button_hashtag=TheRubyChallenge" class="twitter-hashtag-button" data-size="large" data-related="ruby_challenge" data-url="<%= root_url %>">Tweet #TheRubyChallenge</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </p>
+  </div>
+</div>

@@ -4,7 +4,7 @@ feature "User submits code challenge" do
   scenario "Signed in user" do
     sign_in_as create(:user)
     visit root_path
-    click_on "Submit code challenge"
+    click_on "+ Submit Code Challenge"
 
     fill_in "Left code sample", with: %(puts "Hello World")
     fill_in "Right code sample", with: %(puts "こんにちは世界")
@@ -16,7 +16,7 @@ feature "User submits code challenge" do
 
   scenario "Guest user" do
     visit root_path
-    click_on "Submit code challenge"
+    click_on "Submit your code challenge »"
 
     expect(page).to have_content("Please sign in")
   end
