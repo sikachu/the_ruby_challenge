@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap/theme";
+@import "coderay";
 
 header.navbar {
   border-radius: 0;
@@ -18,5 +19,22 @@ header.navbar {
 
   .has-error>& {
     border-color: #a94442;
+  }
+}
+
+.panel.code_challenge {
+  .panel-heading {
+    .btn-group {
+      top: -7px;
+      right: -12px;
+    }
+  }
+
+  .panel-content {
+    padding: 15px 15px 0 15px;
+  }
+
+  .CodeRay {
+    margin-bottom: 15px;
   }
 }

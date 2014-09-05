@@ -230,6 +230,7 @@ DEPENDENCIES
   bugsnag
   capybara
   codeclimate-test-reporter
+  coderay
   coffee-rails (~> 4.0.0)
   factory_girl_rails
   jquery-rails

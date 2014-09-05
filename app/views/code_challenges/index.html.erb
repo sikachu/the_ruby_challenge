@@ -1,9 +1,26 @@
-<h1>My Code Challenges</h1>
-<table>
-  <% @code_challenges.each do |code_challenge| %>
-    <%= content_tag_for :tr, code_challenge do %>
-      <td>Code challenge #<%= code_challenge.slug %></td>
-      <td><%= link_to "View", code_challenge %></td>
-    <% end %>
+<h1>My code challenges</h1>
+
+<% @code_challenges.each do |code_challenge| %>
+  <%= content_tag_for :section, code_challenge, class: "panel panel-default" do %>
+    <header class="panel-heading">
+      <%= code_challenge.goal.humanize %>:
+      <strong>#<%= code_challenge.slug %></strong>
+      <div class="btn-group pull-right">
+        <%= link_to code_challenge, class: "btn btn-default" do %>
+          <span class="glyphicon glyphicon-search"></span>
+          View
+        <% end %>
+      </div>
+    </header>
+    <section class="panel-content">
+      <section class="row">
+        <section class="col-md-6">
+          <%= render_code_snippet code_challenge.left_code_sample %>
+        </section>
+        <section class="col-md-6">
+          <%= render_code_snippet code_challenge.right_code_sample %>
+        </section>
+      </section>
+    </section>
   <% end %>
-</table>
+<% end %>
