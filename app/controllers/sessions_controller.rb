@@ -1,10 +1,16 @@
 class SessionsController < ApplicationController
   def new
+    if params[:redirect_to].to_s.start_with?("/")
+      session[:redirect_back_to] = params[:redirect_to]
+    end
+
+    redirect_to "/auth/github"
   end
 
   def create
     self.current_user = User.find_or_create_by_authentication_hash(auth_hash)
-    redirect_to code_challenges_path
+    redirect_to session[:redirect_back_to] || code_challenges_path
+    session[:redirect_back_to] = nil
   end
 
   def destroy

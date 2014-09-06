@@ -13,11 +13,4 @@ feature "User submits code challenge" do
 
     expect(page).to have_content("Your code challenge has been submitted.")
   end
-
-  scenario "Guest user" do
-    visit root_path
-    click_on "Submit your code challenge »"
-
-    expect(page).to have_content("Please sign in")
-  end
 end

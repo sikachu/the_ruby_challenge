@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
 
   def validate_user
     unless current_user
-      redirect_to signin_path
+      redirect_to signin_path(redirect_to: request.path)
     end
   end
 end
