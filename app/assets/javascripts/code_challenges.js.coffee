@@ -1,5 +1,5 @@
 $ ->
-  $("form[id$=code_challenge] textarea[id$=code_sample]").each ->
+  $("form[class$=_code_challenge] textarea[id$=code_sample]").each ->
     textarea_id = $(@).prop("id")
     editor_id = "#{textarea_id}_editor"
     $(@).after $("<div>", id: editor_id, class: "ace-editor", data: { target: textarea_id })
@@ -14,7 +14,7 @@ $ ->
 
     $(@).hide()
 
-  $("form[id$=code_challenge]").on "submit", ->
+  $("form[class$=_code_challenge]").on "submit", ->
     $(".ace-editor").each ->
       textarea_id = $(@).data("target")
       $("##{textarea_id}").val ace.edit(@).getValue()

@@ -1,4 +1,16 @@
-<h1>Code challenge: #<%= @code_challenge.slug %></h1>
+<h1>
+  Code challenge: #<%= @code_challenge.slug %>
+
+  <section class="pull-right">
+    <%= link_to [:edit, @code_challenge], class: "btn btn-default" do %>
+      <span class="glyphicon glyphicon-pencil"></span> Edit
+    <% end %>
+    <%= link_to @code_challenge, class: "btn btn-default btn-danger-on-hover", method: :delete,
+      data: { confirm: "Are you sure you want to remove this code challenge?\n(This action cannot be undone.)" } do %>
+      <span class="glyphicon glyphicon-trash"></span> Delete
+    <% end %>
+  </section>
+</h1>
 
 <%= content_tag_for :section, @code_challenge, class: "row" do %>
   <section class="col-md-6">

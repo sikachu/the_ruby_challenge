@@ -1,5 +1,5 @@
 class CodeChallengesController < ApplicationController
-  before_action :validate_user
+  before_action :validate_user, except: :show
 
   def index
     @code_challenges = CodeChallenge.all
@@ -22,6 +22,31 @@ class CodeChallengesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @code_challenge = CodeChallenge.find_by_slug!(params[:id])
+  end
+
+  def update
+    @code_challenge = CodeChallenge.find_by_slug!(params[:id])
+
+    if @code_challenge.update_attributes(code_challenge_params)
+      flash[:success] = t(".updated")
+      redirect_to @code_challenge
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @code_challenge = CodeChallenge.find_by_slug!(params[:id])
+
+    if @code_challenge.destroy
+      flash[:alert] = t(".destroyed", slug: @code_challenge.slug)
+    end
+
+    redirect_to action: :index
   end
 
   private

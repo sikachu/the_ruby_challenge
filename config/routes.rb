@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get "signin" => "sessions#new"
   get "signout" => "sessions#destroy"
 
-  resources :code_challenges, only: [:index, :show, :new, :create]
+  resources :code_challenges
 end

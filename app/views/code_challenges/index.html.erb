@@ -6,9 +6,15 @@
       <%= code_challenge.goal.humanize %>:
       <strong>#<%= code_challenge.slug %></strong>
       <div class="btn-group pull-right">
+        <%= link_to [:edit, code_challenge], class: "btn btn-default" do %>
+          <span class="glyphicon glyphicon-pencil"></span> Edit
+        <% end %>
         <%= link_to code_challenge, class: "btn btn-default" do %>
-          <span class="glyphicon glyphicon-search"></span>
-          View
+          <span class="glyphicon glyphicon-search"></span> View
+        <% end %>
+        <%= link_to code_challenge, class: "btn btn-default btn-danger-on-hover", method: :delete,
+          data: { confirm: "Are you sure you want to remove this code challenge?\n(This action cannot be undone.)" } do %>
+          <span class="glyphicon glyphicon-trash"></span>
         <% end %>
       </div>
     </header>

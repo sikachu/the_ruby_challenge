@@ -15,6 +15,12 @@ header.navbar {
   margin-top: -20px;
 }
 
+.btn-danger-on-hover:hover {
+  background: $btn-danger-color;
+  text-shadow: none;
+  @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+}
+
 .ace-editor {
   width: 100%;
   height: 400px;

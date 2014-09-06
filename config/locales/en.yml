@@ -9,3 +9,7 @@ en:
   code_challenges:
     create:
       created: "Your code challenge has been submitted."
+    update:
+      updated: "Your code challenge has been saved."
+    destroy:
+      destroyed: "Code challenge #%{slug} has been deleted."
