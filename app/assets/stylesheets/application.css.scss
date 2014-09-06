@@ -3,6 +3,10 @@
 @import "bootstrap/theme";
 @import "coderay";
 
+body > .container > h1 {
+  margin-bottom: 0.5em;
+}
+
 header.navbar {
   border-radius: 0;
 }
