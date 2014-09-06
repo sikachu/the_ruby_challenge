@@ -5,6 +5,10 @@
 
 body > .container > h1 {
   margin-bottom: 0.5em;
+
+  &.no-margin {
+    margin-bottom: 0;
+  }
 }
 
 header.navbar {
@@ -13,6 +17,13 @@ header.navbar {
 
 .jumbotron {
   margin-top: -20px;
+}
+
+.submitter {
+  margin-top: 0.2em;
+  margin-bottom: 1.2em;
+  color: $gray-light;
+  padding-left: 2px;
 }
 
 .btn-danger-on-hover:hover {

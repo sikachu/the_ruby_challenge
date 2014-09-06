@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
 
     user
   end
+
+  def github_url
+    "https://github.com/#{github_username}"
+  end
 end

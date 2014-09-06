@@ -6,6 +6,9 @@ en:
           attributes:
             goal:
               blank: "must be selected"
+  time:
+    formats:
+      default: "%B %d, %Y %I:%M %p %Z"
   code_challenges:
     create:
       created: "Your code challenge has been submitted."

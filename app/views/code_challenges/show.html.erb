@@ -1,4 +1,4 @@
-<h1>
+<h1 class="no-margin">
   Code challenge: #<%= @code_challenge.slug %>
 
   <% if @code_challenge.submitted_by? current_user %>
@@ -20,6 +20,13 @@
     </section>
   <% end %>
 </h1>
+
+<p class="submitter">
+  Submitted by
+  <%= link_to @code_challenge.submitter.github_username, @code_challenge.submitter.github_url, target: "_blank" %>
+  on
+  <%= l @code_challenge.created_at %>
+</p>
 
 <%= content_tag_for :section, @code_challenge, class: "row" do %>
   <section class="col-md-6">
