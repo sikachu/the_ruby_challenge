@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :code_challenges, foreign_key: :submitter_id
+
   def self.find_or_create_by_authentication_hash(authentication_hash)
     user = User.find_or_initialize_by(github_user_id: authentication_hash[:uid])
 

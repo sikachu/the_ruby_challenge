@@ -9,7 +9,7 @@ module SignInHelper
   end
 
   def sign_in
-    sign_in_as build_stubbed(:user)
+    sign_in_as create(:user)
   end
 end
 

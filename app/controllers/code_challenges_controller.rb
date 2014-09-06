@@ -1,8 +1,9 @@
 class CodeChallengesController < ApplicationController
   before_action :validate_user, except: :show
+  before_action :find_my_code_challenge, only: [:edit, :update, :destroy]
 
   def index
-    @code_challenges = CodeChallenge.all
+    @code_challenges = current_user.code_challenges.order(created_at: :desc)
   end
 
   def show
@@ -10,11 +11,11 @@ class CodeChallengesController < ApplicationController
   end
 
   def new
-    @code_challenge = CodeChallenge.new
+    @code_challenge = current_user.code_challenges.build
   end
 
   def create
-    @code_challenge = CodeChallenge.new(code_challenge_params)
+    @code_challenge = current_user.code_challenges.build(code_challenge_params)
 
     if @code_challenge.save
       flash[:success] = t(".created")
@@ -25,12 +26,9 @@ class CodeChallengesController < ApplicationController
   end
 
   def edit
-    @code_challenge = CodeChallenge.find_by_slug!(params[:id])
   end
 
   def update
-    @code_challenge = CodeChallenge.find_by_slug!(params[:id])
-
     if @code_challenge.update_attributes(code_challenge_params)
       flash[:success] = t(".updated")
       redirect_to @code_challenge
@@ -40,8 +38,6 @@ class CodeChallengesController < ApplicationController
   end
 
   def destroy
-    @code_challenge = CodeChallenge.find_by_slug!(params[:id])
-
     if @code_challenge.destroy
       flash[:alert] = t(".destroyed", slug: @code_challenge.slug)
     end
@@ -53,6 +49,10 @@ class CodeChallengesController < ApplicationController
 
   def code_challenge_params
     params.require(:code_challenge).permit(:goal, :left_code_sample,
-      :right_code_sample).merge(:submitter => current_user)
+      :right_code_sample)
+  end
+
+  def find_my_code_challenge
+    @code_challenge = current_user.code_challenges.find_by_slug!(params[:id])
   end
 end
