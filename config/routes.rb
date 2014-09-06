@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  constraints subdomain: 'www' do
-    get ':any', to: redirect(subdomain: nil, path: '/%{any}'), any: /.*/
+  if Rails.env.production?
+    constraints subdomain: 'www' do
+      get ':any', to: redirect(subdomain: nil, path: '/%{any}'), any: /.*/
+    end
   end
 
   root "home#index"
