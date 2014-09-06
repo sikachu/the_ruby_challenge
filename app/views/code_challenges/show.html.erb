@@ -8,15 +8,17 @@
   <% end %>
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
-  <section class="pull-right">
-    <%= link_to [:edit, @code_challenge], class: "btn btn-default" do %>
-      <span class="glyphicon glyphicon-pencil"></span> Edit
-    <% end %>
-    <%= link_to @code_challenge, class: "btn btn-default btn-danger-on-hover", method: :delete,
-      data: { confirm: "Are you sure you want to remove this code challenge?\n(This action cannot be undone.)" } do %>
-      <span class="glyphicon glyphicon-trash"></span> Delete
-    <% end %>
-  </section>
+  <% if @code_challenge.submitted_by? current_user %>
+    <section class="pull-right">
+      <%= link_to [:edit, @code_challenge], class: "btn btn-default" do %>
+        <span class="glyphicon glyphicon-pencil"></span> Edit
+      <% end %>
+      <%= link_to @code_challenge, class: "btn btn-default btn-danger-on-hover", method: :delete,
+        data: { confirm: "Are you sure you want to remove this code challenge?\n(This action cannot be undone.)" } do %>
+        <span class="glyphicon glyphicon-trash"></span> Delete
+      <% end %>
+    </section>
+  <% end %>
 </h1>
 
 <%= content_tag_for :section, @code_challenge, class: "row" do %>
