@@ -1,6 +1,13 @@
 <h1>
   Code challenge: #<%= @code_challenge.slug %>
 
+  <% if @code_challenge.submitted_by? current_user %>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-text="Checkout my submitted code challenge for #TheRubyChallenge"></a>
+  <% else %>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-text="Checkout this submitted code challenge for #TheRubyChallenge"></a>
+  <% end %>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
   <section class="pull-right">
     <%= link_to [:edit, @code_challenge], class: "btn btn-default" do %>
       <span class="glyphicon glyphicon-pencil"></span> Edit

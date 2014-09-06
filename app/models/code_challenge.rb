@@ -14,6 +14,10 @@ class CodeChallenge < ActiveRecord::Base
     slug
   end
 
+  def submitted_by?(user)
+    submitter == user
+  end
+
   private
 
   def generate_slug
