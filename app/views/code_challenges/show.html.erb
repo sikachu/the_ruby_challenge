@@ -1,4 +1,10 @@
-<h2>Code Challenge #<%= @code_challenge.slug %></h2>
-<h3>Goal: <%= @code_challenge.goal.humanize %></h3>
-<pre><code><%= @code_challenge.left_code_sample %></code></pre>
-<pre><code><%= @code_challenge.right_code_sample %></code></pre>
+<h1>Code challenge: #<%= @code_challenge.slug %></h1>
+
+<%= content_tag_for :section, @code_challenge, class: "row" do %>
+  <section class="col-md-6">
+    <%= render_code_sample @code_challenge.left_code_sample %>
+  </section>
+  <section class="col-md-6">
+    <%= render_code_sample @code_challenge.right_code_sample %>
+  </section>
+<% end %>

@@ -8,6 +8,10 @@ module CodeChallengesHelper
       truncated_code_sample = code_sample
     end
 
-    CodeRay.scan(truncated_code_sample, :ruby).div(css: :class).html_safe
+    render_code_sample(truncated_code_sample)
+  end
+
+  def render_code_sample(code_sample)
+    CodeRay.scan(code_sample, :ruby).div(css: :class).html_safe
   end
 end
