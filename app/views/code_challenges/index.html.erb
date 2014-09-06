@@ -30,3 +30,9 @@
     </section>
   <% end %>
 <% end %>
+
+<% if @code_challenges.empty? %>
+  <section class="alert alert-info" role="alert">
+    You currently do not have any submitted code challenges. Why don't you submit one?
+  </section>
+<% end %>
