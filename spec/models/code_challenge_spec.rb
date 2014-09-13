@@ -13,7 +13,7 @@ describe CodeChallenge do
       code_challenge = create(:code_challenge)
 
       expect(code_challenge.slug).not_to be_nil
-      expect(code_challenge.slug.size).to eq 8
+      expect(code_challenge.slug.size).to eq 5
     end
 
     it "retries slug generation when slug already exists" do

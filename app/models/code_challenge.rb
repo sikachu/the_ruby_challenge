@@ -22,7 +22,7 @@ class CodeChallenge < ActiveRecord::Base
 
   def generate_slug
     while slug.nil? || CodeChallenge.where(slug: slug).exists?
-      self.slug = Array.new(8) { SLUG_CHARACTERS_RANGE.sample }.join
+      self.slug = Array.new(5) { SLUG_CHARACTERS_RANGE.sample }.join
     end
   end
 end
