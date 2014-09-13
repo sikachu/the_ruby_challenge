@@ -10,7 +10,7 @@
 <% end %>
 
 <h1 class="no-margin">
-  Code challenge: #<%= @code_challenge.slug %>
+  <%= @code_challenge.goal.capitalize %> challenge: #<%= @code_challenge.slug %>
 
   <% if @code_challenge.submitted_by? current_user %>
     <a href="https://twitter.com/share" class="twitter-share-button" data-text="Checkout my submitted code challenge for #TheRubyChallenge"></a>
