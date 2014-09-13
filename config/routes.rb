@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   if Rails.env.production?
-    constraints subdomain: 'www' do
-      get ':any', to: redirect(subdomain: nil, path: '/%{any}'), any: /.*/
+    constraints subdomain: "www" do
+      get ":any", to: redirect(subdomain: nil, path: "/%{any}"), any: /.*/
     end
   end
 
