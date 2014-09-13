@@ -27,4 +27,20 @@ describe CodeChallengesController do
       end
     end
   end
+
+  describe "#show" do
+    it "redirects to shorter slug when longer slug were provided" do
+      create(:code_challenge, slug: "12345")
+
+      get :show, id: "12345678"
+
+      expect(response).to redirect_to(code_challenge_path("12345"))
+    end
+
+    it "does not redirect if shorter slug is not found" do
+      expect { get :show, id: "12345678" }.
+        to raise_error(ActiveRecord::RecordNotFound)
+      expect(response).not_to redirect_to(code_challenge_path("12345"))
+    end
+  end
 end

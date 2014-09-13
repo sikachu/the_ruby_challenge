@@ -1,5 +1,6 @@
 class CodeChallengesController < ApplicationController
   before_action :validate_user, except: :show
+  before_action :redirect_to_shorter_slug, only: :show
   before_action :find_my_code_challenge, only: [:edit, :update, :destroy]
 
   def index
@@ -54,5 +55,13 @@ class CodeChallengesController < ApplicationController
 
   def find_my_code_challenge
     @code_challenge = current_user.code_challenges.find_by_slug!(params[:id])
+  end
+
+  def redirect_to_shorter_slug
+    if params[:id] && params[:id].size == 8
+      if CodeChallenge.where(slug: params[:id].first(5)).exists?
+        redirect_to id: params[:id].first(5), status: :moved_permanently
+      end
+    end
   end
 end
