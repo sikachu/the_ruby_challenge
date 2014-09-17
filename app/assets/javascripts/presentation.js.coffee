@@ -1,8 +1,14 @@
 $ ->
   if $("#presentation-list").length > 0
-    updateCurrent = =>
+    updateCurrent = ->
       window.localStorage["left-screen"] = $(".current .left").html()
       window.localStorage["right-screen"] = $(".current .right").html()
+
+    moveToSlide = (slide) ->
+      $("#presentation-list .current").removeClass("current")
+      $(slide).addClass("current")
+      $(document).scrollTo(slide, 500)
+      updateCurrent()
 
     $("li:first", @).addClass("current")
     updateCurrent()
@@ -12,22 +18,16 @@ $ ->
         when 33, 37, 38 # Page Up, Left, Up
           e.preventDefault()
           previousItem = $("#presentation-list .current").prev()
-
-          if previousItem.length > 0
-            $("#presentation-list .current").removeClass("current")
-            previousItem.addClass("current")
-            $(document).scrollTo(previousItem, 500)
-            updateCurrent()
+          moveToSlide(previousItem) if previousItem?
 
         when 34, 39, 40 # Page Down, Right, Down
           e.preventDefault()
           nextItem = $("#presentation-list .current").next()
+          moveToSlide(nextItem) if nextItem?
 
-          if nextItem.length > 0
-            $("#presentation-list .current").removeClass("current")
-            nextItem.addClass("current")
-            $(document).scrollTo(nextItem, 500)
-            updateCurrent()
+    $("#presentation-list li").on "click", ->
+      moveToSlide(@)
+
 
   $("#presentation #left-screen, #presentation #right-screen").each ->
     updateContent = =>
