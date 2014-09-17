@@ -10,6 +10,8 @@ en:
     labels:
       code_challenge:
         goal: "Winning criteria"
+        left_time_msec: "Left time (msec)"
+        right_time_msec: "Right time (msec)"
     options:
       code_challenge:
         goal:

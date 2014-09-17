@@ -49,8 +49,13 @@ class CodeChallengesController < ApplicationController
   private
 
   def code_challenge_params
-    params.require(:code_challenge).permit(:goal, :left_code_sample,
-      :right_code_sample)
+    if current_user.admin?
+      params.require(:code_challenge).permit(:goal, :left_code_sample,
+        :right_code_sample, :left_time_usec, :right_time_usec)
+    else
+      params.require(:code_challenge).permit(:goal, :left_code_sample,
+        :right_code_sample)
+    end
   end
 
   def find_my_code_challenge
