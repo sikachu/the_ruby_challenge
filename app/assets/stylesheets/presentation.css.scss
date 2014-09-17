@@ -54,5 +54,27 @@ ol#presentation-list {
     top: 50%;
     transform: translateY(-50%);
     transform-style: preserve-3d;
+
+    #ticket-numbers {
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      list-style-type: none;
+      bottom: 50%;
+      width: 100%;
+      color: #666;
+
+      li:nth-last-child(3) {
+        color: #444;
+      }
+
+      li:nth-last-child(2) {
+        color: #222;
+      }
+
+      li:nth-last-child(1){
+        color: #000;
+      }
+    }
   }
 }

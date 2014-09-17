@@ -7,4 +7,7 @@ class PresentationsController < ApplicationController
 
   def right_screen
   end
+
+  def tickets
+  end
 end

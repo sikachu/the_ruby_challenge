@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :code_challenges
 
   resource :presentation, only: :show do
+    get :tickets, on: :member
     get :left_screen, on: :member
     get :right_screen, on: :member
   end
