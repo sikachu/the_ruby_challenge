@@ -12,4 +12,9 @@ Rails.application.routes.draw do
   get "signout" => "sessions#destroy"
 
   resources :code_challenges
+
+  resource :presentation, only: :show do
+    get :left_screen, on: :member
+    get :right_screen, on: :member
+  end
 end

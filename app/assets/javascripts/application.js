@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require ace/ace
+//= require fittext
+//= require jquery.scrollTo
 //= require_tree .
