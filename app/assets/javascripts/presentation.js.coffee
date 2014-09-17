@@ -18,12 +18,12 @@ $ ->
         when 33, 37, 38 # Page Up, Left, Up
           e.preventDefault()
           previousItem = $("#presentation-list .current").prev()
-          moveToSlide(previousItem) if previousItem?
+          moveToSlide(previousItem) if previousItem.length > 0
 
         when 34, 39, 40 # Page Down, Right, Down
           e.preventDefault()
           nextItem = $("#presentation-list .current").next()
-          moveToSlide(nextItem) if nextItem?
+          moveToSlide(nextItem) if nextItem.length > 0
 
     $("#presentation-list li").on "click", ->
       moveToSlide(@)
