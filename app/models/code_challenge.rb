@@ -64,9 +64,11 @@ class CodeChallenge < ActiveRecord::Base
   end
 
   def test_code_speed(code)
-    # TODO: This is consider unsafe
-    result = Benchmark.bmbm { |t| t.item { eval(code) }}
-    result.first.real * 1_000_000
+    quietly do
+      # TODO: This is consider unsafe
+      result = Benchmark.bmbm { |t| t.item { eval(code) }}
+      result.first.real * 1_000_000
+    end
   rescue
     0
   end
