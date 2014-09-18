@@ -10,12 +10,37 @@ class CodeChallenge < ActiveRecord::Base
 
   before_validation :generate_slug, on: :create
 
+  def self.random
+    order("random()")
+  end
+
+  def self.unused
+    where(displayed: false)
+  end
+
   def to_param
     slug
   end
 
   def submitted_by?(user)
     submitter == user
+  end
+
+  def left_wins?
+    left_time_msec.to_i < right_time_msec.to_i
+  end
+
+  def right_wins?
+    !left_wins?
+  end
+
+  def pick(side)
+    update_column :displayed, true
+    @pick = ([side] & %w(left right)).first
+  end
+
+  def correct?
+    (@pick == "left" && left_wins?) || (@pick == "right" && right_wins?)
   end
 
   private

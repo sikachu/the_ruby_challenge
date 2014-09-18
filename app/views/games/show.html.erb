@@ -1,0 +1,26 @@
+<%= simple_form_for Game.new do |f| %>
+  <%= f.submit "Create new game" %>
+<% end %>
+
+<ul id="code-challenges">
+  <% if @game.code_challenge_1 %>
+    <li><%= link_to_unless @game.code_challenge_1.displayed?, "1", [@game, @game.code_challenge_1] %></li>
+  <% end %>
+  <% if @game.code_challenge_2 %>
+    <li><%= link_to_unless @game.code_challenge_2.displayed?, "2", [@game, @game.code_challenge_2] %></li>
+  <% end %>
+  <% if @game.code_challenge_3 %>
+    <li><%= link_to_unless @game.code_challenge_3.displayed?, "3", [@game, @game.code_challenge_3] %></li>
+  <% end %>
+  <% if @game.code_challenge_4 %>
+    <li><%= link_to_unless @game.code_challenge_4.displayed?, "4", [@game, @game.code_challenge_4] %></li>
+  <% end %>
+  <% if @game.code_challenge_5 %>
+    <li><%= link_to_unless @game.code_challenge_5.displayed?, "5", [@game, @game.code_challenge_5] %></li>
+  <% end %>
+</ul>
+
+<p>
+  <strong>Score:</strong>
+  <span id="score"><%= @game.score %></span>
+</p>

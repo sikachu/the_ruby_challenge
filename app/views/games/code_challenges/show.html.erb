@@ -1,0 +1,11 @@
+<%= form_for [@game, @code_challenge] do |f| %>
+  <%= hidden_field_tag :side %>
+<% end %>
+
+<section id="left-code-sample">
+  <%= render_code_sample @code_challenge.left_code_sample %>
+</section>
+
+<section id="right-code-sample">
+  <%= render_code_sample @code_challenge.right_code_sample %>
+</section>

@@ -13,6 +13,11 @@ Rails.application.routes.draw do
 
   resources :code_challenges
 
+  resources :games, only: [:show, :new, :create] do
+    resources :code_challenges, only: [:show, :update],
+      controller: "games/code_challenges"
+  end
+
   resource :presentation, only: :show do
     get :tickets, on: :member
     get :left_screen, on: :member

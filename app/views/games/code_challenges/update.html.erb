@@ -1,0 +1,17 @@
+<%= link_to "Back to game", @game, id: "game-link" %>
+
+<section id="left-code-sample" class="<%= "selected" if params[:side] == "left" %>">
+  <%= render_code_sample @code_challenge.left_code_sample %>
+  <aside>
+    <% if @code_challenge.left_wins? %>&#10003;<% end %>
+    <%= "%.06f sec" % (@code_challenge.left_time_msec.to_f / 100000.0) %>
+  </aside>
+</section>
+
+<section id="right-code-sample" class="<%= "selected" if params[:side] == "right" %>">
+  <%= render_code_sample @code_challenge.right_code_sample %>
+  <aside>
+    <% if @code_challenge.right_wins? %>&#10003;<% end %>
+    <%= "%.06f sec" % (@code_challenge.right_time_msec.to_f / 100000.0) %>
+  </aside>
+</section>

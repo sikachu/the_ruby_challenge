@@ -1,3 +1,5 @@
+@import "coderay";
+
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -39,12 +41,30 @@ ol#presentation-list {
   }
 }
 
+ul#code-challenges {
+  .current {
+    font-weight: bold;
+  }
+}
+
 #presentation {
   .container {
     position: absolute;
     height: 100%;
     width: 90%;
     margin: 0 5%;
+  }
+
+  .CodeRay.active {
+    border: 2px solid #333;
+    border-radius: 10px;
+  }
+
+  #left-code-sample, #right-code-sample {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
   }
 
   #left-screen, #right-screen {
@@ -54,12 +74,16 @@ ol#presentation-list {
     top: 50%;
     transform: translateY(-50%);
     transform-style: preserve-3d;
+    word-wrap: break-word;
 
-    #ticket-numbers {
+    ul {
       margin: 0;
       padding: 0;
-      position: absolute;
       list-style-type: none;
+    }
+
+    #ticket-numbers {
+      position: absolute;
       bottom: 50%;
       width: 100%;
       color: #666;
@@ -75,6 +99,52 @@ ol#presentation-list {
       li:nth-last-child(1){
         color: #000;
       }
+    }
+
+    #code-challenges {
+      li {
+        display: inline-block;
+        padding: 20px 100px;
+        margin-bottom: 20px;
+        border: 1px solid #999;
+        border-radius: 5px;
+        color: #fff;
+      }
+
+      a {
+        text-decoration: none;
+        color: #000;
+      }
+
+      .current {
+        font-weight: inherit;
+        background: #ccc;
+        color: #ccc;
+
+        a {
+          color: #000;
+        }
+      }
+    }
+
+    .CodeRay {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100;
+      text-align: left;
+      font-size: 40px;
+      border: 2px solid #fff;
+
+      &.active {
+        border-color: #000
+      }
+    }
+
+    aside {
+      font-size: 50px;
+      margin-top: 50px;
     }
   }
 }

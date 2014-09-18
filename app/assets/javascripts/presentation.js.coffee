@@ -36,4 +36,7 @@ $ ->
       if $(@).html() != newContent
         $(@).html(newContent)
 
+      unless $(".CodeRay", @).length > 0
+        $(@).fitText 1.0, maxFontSize: "80px"
+
     setInterval updateContent, 100
