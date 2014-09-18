@@ -15,8 +15,8 @@
     </section>
   </section>
   <% if current_user.admin? %>
-    <%= f.input :left_time_msec %>
-    <%= f.input :right_time_msec %>
+    <%= f.input :left_time_usec %>
+    <%= f.input :right_time_usec %>
   <% end %>
   <%= f.input :goal, as: :radio_buttons, collection: CodeChallenge::GOALS.map(&:to_sym), required: false %>
   <%= f.button :submit %>

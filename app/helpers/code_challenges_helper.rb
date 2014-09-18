@@ -14,4 +14,16 @@ module CodeChallengesHelper
   def render_code_sample(code_sample)
     CodeRay.scan(code_sample, :ruby).div(css: :class).html_safe
   end
+
+  def checkmark_if(condition)
+    if condition
+      "&#10003;".html_safe
+    end
+  end
+
+  def runtime(usec)
+    if usec
+      "%.03f ms" % (usec / 1000.0)
+    end
+  end
 end

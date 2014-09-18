@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20140917193802) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug",                              null: false
-    t.integer  "left_time_msec"
-    t.integer  "right_time_msec"
+    t.integer  "left_time_usec"
+    t.integer  "right_time_usec"
     t.boolean  "displayed",         default: false, null: false
   end
 

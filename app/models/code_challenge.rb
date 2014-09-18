@@ -27,7 +27,7 @@ class CodeChallenge < ActiveRecord::Base
   end
 
   def left_wins?
-    left_time_msec.to_i < right_time_msec.to_i
+    left_time_usec.to_i < right_time_usec.to_i
   end
 
   def right_wins?
