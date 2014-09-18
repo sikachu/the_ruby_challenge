@@ -31,7 +31,9 @@ $ ->
 
   $("#presentation #left-screen, #presentation #right-screen").each ->
     updateContent = =>
-      $(@).html(window.localStorage[$(@).prop("id")]).fitText 1.0,
-        maxFontSize: "80px"
+      newContent = window.localStorage[$(@).prop("id")]
+
+      if $(@).html() != newContent
+        $(@).html(newContent)
 
     setInterval updateContent, 100
