@@ -32,11 +32,18 @@ $ ->
   $("#presentation #left-screen, #presentation #right-screen").each ->
     updateContent = =>
       newContent = window.localStorage[$(@).prop("id")]
+      oldContent = $(@).data("content")
 
-      if $(@).html() != newContent
+      if oldContent != newContent
         $(@).html(newContent)
+        $(@).data("content", newContent)
 
-      unless $(".CodeRay", @).length > 0
-        $(@).fitText 1.0, maxFontSize: "80px"
+        unless $(".CodeRay", @).length > 0
+          $(@).fitText 1.0, maxFontSize: "80px"
+
+        if $(".floating", @).length > 0
+          $(".floating", @).appendTo("body")
+        else
+          $(".floating").remove()
 
     setInterval updateContent, 100

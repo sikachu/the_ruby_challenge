@@ -3,9 +3,11 @@
 <% end %>
 
 <section id="left-code-sample">
+  <small class="floating">https://therubychallenge.com/<%= @code_challenge.slug %></small>
   <%= render_code_sample @code_challenge.left_code_sample %>
 </section>
 
 <section id="right-code-sample">
+  <small class="floating">https://therubychallenge.com/<%= @code_challenge.slug %></small>
   <%= render_code_sample @code_challenge.right_code_sample %>
 </section>

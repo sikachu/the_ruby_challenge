@@ -67,6 +67,16 @@ ul#code-challenges {
     border-radius: 10px;
   }
 
+  small.floating {
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    font-size: 30px;
+    display: block;
+    color: #999;
+    font-family: Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace
+  }
+
   #left-screen, #right-screen {
     width: 100%;
     text-align: center;
@@ -146,5 +156,6 @@ ul#code-challenges {
       font-size: 50px;
       margin-top: 50px;
     }
+
   }
 }
