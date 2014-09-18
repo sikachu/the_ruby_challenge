@@ -23,4 +23,6 @@ Rails.application.routes.draw do
     get :left_screen, on: :member
     get :right_screen, on: :member
   end
+
+  get ":slug", to: redirect(path: "/code_challenges/%{slug}"), slug: /[A-Za-z0-9]{5}/
 end
