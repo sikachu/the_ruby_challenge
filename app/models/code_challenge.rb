@@ -1,3 +1,5 @@
+require "benchmark"
+
 class CodeChallenge < ActiveRecord::Base
   GOALS = %w(speed memory_usage)
   SLUG_CHARACTERS_RANGE = [*('0'..'9'), *('a'..'z'), *('A'..'Z')]
@@ -9,6 +11,8 @@ class CodeChallenge < ActiveRecord::Base
   validates :goal, inclusion: GOALS, if: :goal?
 
   before_validation :generate_slug, on: :create
+  before_save :test_left_code_sample_speed, if: :left_code_sample_changed?
+  before_save :test_right_code_sample_speed, if: :right_code_sample_changed?
 
   def self.random
     order("random()")
@@ -49,5 +53,21 @@ class CodeChallenge < ActiveRecord::Base
     while slug.nil? || CodeChallenge.where(slug: slug).exists?
       self.slug = Array.new(5) { SLUG_CHARACTERS_RANGE.sample }.join
     end
+  end
+
+  def test_left_code_sample_speed
+    self.left_time_usec = test_code_speed(left_code_sample)
+  end
+
+  def test_right_code_sample_speed
+    self.right_time_usec = test_code_speed(right_code_sample)
+  end
+
+  def test_code_speed(code)
+    # TODO: This is consider unsafe
+    result = Benchmark.bmbm { |t| t.item { eval(code) }}
+    result.first.real * 1_000_000
+  rescue
+    0
   end
 end
