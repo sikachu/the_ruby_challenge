@@ -32,12 +32,7 @@
   <% end %>
 </h1>
 
-<p class="submitter">
-  Submitted by
-  <%= link_to @code_challenge.submitter.github_username, @code_challenge.submitter.github_url, target: "_blank" %>
-  on
-  <%= l @code_challenge.created_at %>
-</p>
+<p class="submitter"></p>
 
 <%= content_tag_for :section, @code_challenge, class: "row" do %>
   <section class="col-md-6">
