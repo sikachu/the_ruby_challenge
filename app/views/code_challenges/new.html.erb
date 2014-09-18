@@ -1,11 +1,18 @@
 <h1>Submit new code challenge</h1>
 
-<% if params[:action] == "new" %>
-  <section class="alert alert-info" role="alert">
-    Your submitted code challenge will become publicly available, and will be
-    licensed under
-    <a href="https://github.com/sikachu/the_ruby_challenge/blob/master/LICENSE" class="alert-link">MIT License</a>.
+<% if current_user.admin? %>
+  <% if params[:action] == "new" %>
+    <section class="alert alert-info" role="alert">
+      Your submitted code challenge will become publicly available, and will be
+      licensed under
+      <a href="https://github.com/sikachu/the_ruby_challenge/blob/master/LICENSE" class="alert-link">MIT License</a>.
+    </section>
+  <% end %>
+
+  <%= render "form", code_challenge: @code_challenge %>
+<% else %>
+  <section class="alert alert-warning" role="alert">
+    Thank you for your interest. However, we do not take new code submission
+    for now. Please check back later.
   </section>
 <% end %>
-
-<%= render "form", code_challenge: @code_challenge %>

@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "User submits code challenge" do
   scenario "Signed in user" do
-    sign_in_as create(:user)
+    sign_in_as create(:user, github_username: "sikachu")
     visit root_path
     click_on "+ Submit Code Challenge"
 
