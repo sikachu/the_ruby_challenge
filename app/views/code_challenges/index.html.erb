@@ -1,4 +1,4 @@
-<h1>My code challenges</h1>
+<h1>My code challenges (<%= @code_challenges.size %>)</h1>
 
 <% @code_challenges.each do |code_challenge| %>
   <%= content_tag_for :section, code_challenge, class: "panel panel-default" do %>
