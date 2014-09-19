@@ -47,20 +47,20 @@ class CodeChallenge < ActiveRecord::Base
     (@pick == "left" && left_wins?) || (@pick == "right" && right_wins?)
   end
 
-  private
-
-  def generate_slug
-    while slug.nil? || CodeChallenge.where(slug: slug).exists?
-      self.slug = Array.new(5) { SLUG_CHARACTERS_RANGE.sample }.join
-    end
-  end
-
   def test_left_code_sample_speed
     self.left_time_usec = test_code_speed(left_code_sample)
   end
 
   def test_right_code_sample_speed
     self.right_time_usec = test_code_speed(right_code_sample)
+  end
+
+  private
+
+  def generate_slug
+    while slug.nil? || CodeChallenge.where(slug: slug).exists?
+      self.slug = Array.new(5) { SLUG_CHARACTERS_RANGE.sample }.join
+    end
   end
 
   def test_code_speed(code)
