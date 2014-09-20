@@ -19,7 +19,7 @@ class CodeChallenge < ActiveRecord::Base
   end
 
   def self.unused
-    where(displayed: false)
+    where(displayed_at: nil)
   end
 
   def to_param
@@ -38,8 +38,12 @@ class CodeChallenge < ActiveRecord::Base
     !left_wins?
   end
 
+  def displayed?
+    !displayed_at.nil?
+  end
+
   def pick(side)
-    update_column :displayed, true
+    touch :displayed_at
     @pick = ([side] & %w(left right)).first
   end
 

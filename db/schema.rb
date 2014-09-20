@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140919184132) do
+ActiveRecord::Schema.define(version: 20140920051317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20140919184132) do
     t.string   "slug",                                null: false
     t.integer  "left_time_usec"
     t.integer  "right_time_usec"
-    t.boolean  "displayed",         default: false,   null: false
+    t.datetime "displayed_at"
   end
 
   add_index "code_challenges", ["slug"], name: "index_code_challenges_on_slug", unique: true, using: :btree
