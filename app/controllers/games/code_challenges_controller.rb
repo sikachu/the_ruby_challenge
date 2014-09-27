@@ -7,6 +7,7 @@ class Games::CodeChallengesController < ApplicationController
   end
 
   def update
+    @game.mark_code_challenge_as_displayed(@code_challenge)
     @code_challenge.pick(params[:side])
 
     if @code_challenge.correct?

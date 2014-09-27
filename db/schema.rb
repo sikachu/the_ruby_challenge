@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140920051317) do
+ActiveRecord::Schema.define(version: 20140927071708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20140920051317) do
   add_index "code_challenges", ["submitter_id"], name: "index_code_challenges_on_submitter_id", using: :btree
 
   create_table "games", force: true do |t|
-    t.integer  "score",               default: 0, null: false
+    t.integer  "score",                      default: 0,     null: false
     t.integer  "code_challenge_1_id"
     t.integer  "code_challenge_2_id"
     t.integer  "code_challenge_3_id"
@@ -41,6 +41,11 @@ ActiveRecord::Schema.define(version: 20140920051317) do
     t.integer  "code_challenge_5_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "code_challenge_1_displayed", default: false
+    t.boolean  "code_challenge_2_displayed", default: false
+    t.boolean  "code_challenge_3_displayed", default: false
+    t.boolean  "code_challenge_4_displayed", default: false
+    t.boolean  "code_challenge_5_displayed", default: false
   end
 
   create_table "users", force: true do |t|

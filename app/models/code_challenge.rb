@@ -43,7 +43,6 @@ class CodeChallenge < ActiveRecord::Base
   end
 
   def pick(side)
-    touch :displayed_at
     @pick = ([side] & %w(left right)).first
   end
 
