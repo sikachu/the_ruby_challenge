@@ -1,10 +1,10 @@
 class CodeChallengesController < ApplicationController
-  before_action :validate_user, except: :show
+  before_action :validate_admin, except: [:index, :show]
   before_action :redirect_to_shorter_slug, only: :show
   before_action :find_my_code_challenge, only: [:edit, :update, :destroy]
 
   def index
-    @code_challenges = current_user.code_challenges.order(created_at: :desc)
+    @code_challenges = CodeChallenge.order(created_at: :desc)
   end
 
   def show

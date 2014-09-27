@@ -22,4 +22,13 @@ class ApplicationController < ActionController::Base
       redirect_to signin_path(redirect_to: request.path)
     end
   end
+
+  def validate_admin
+    validate_user
+
+    if current_user && !current_user.admin?
+      flash[:alert] = "You're not authorized to view that page."
+      redirect_to code_challenges_path
+    end
+  end
 end

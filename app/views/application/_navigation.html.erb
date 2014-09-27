@@ -13,10 +13,7 @@
 
     <ul class="nav navbar-nav">
       <%= active_link_to "Home", root_path, active: ['home'], wrap_tag: :li %>
-
-      <% if signed_in? %>
-        <%= active_link_to "My Code Challenges", code_challenges_path, wrap_tag: :li %>
-      <% end %>
+      <%= active_link_to "Code Challenges", code_challenges_path, wrap_tag: :li %>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">

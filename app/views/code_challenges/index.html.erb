@@ -1,4 +1,4 @@
-<h1>My code challenges (<%= @code_challenges.size %>)</h1>
+<h1>All code challenges (<%= @code_challenges.size %>)</h1>
 
 <% @code_challenges.each do |code_challenge| %>
   <%= content_tag_for :section, code_challenge, class: "panel panel-default" do %>
@@ -6,15 +6,21 @@
       <%= code_challenge.goal.humanize %>:
       <strong>#<%= code_challenge.slug %></strong>
       <div class="btn-group pull-right">
-        <%= link_to [:edit, code_challenge], class: "btn btn-default" do %>
-          <span class="glyphicon glyphicon-pencil"></span> Edit
+        <% if code_challenge.submitter == current_user %>
+          <%= link_to [:edit, code_challenge], class: "btn btn-default" do %>
+            <span class="glyphicon glyphicon-pencil"></span> Edit
+          <% end %>
         <% end %>
+
         <%= link_to code_challenge, class: "btn btn-default" do %>
           <span class="glyphicon glyphicon-search"></span> View
         <% end %>
-        <%= link_to code_challenge, class: "btn btn-default btn-danger-on-hover", method: :delete,
-          data: { confirm: "Are you sure you want to remove this code challenge?\n(This action cannot be undone.)" } do %>
-          <span class="glyphicon glyphicon-trash"></span>
+
+        <% if code_challenge.submitter == current_user %>
+          <%= link_to code_challenge, class: "btn btn-default btn-danger-on-hover", method: :delete,
+            data: { confirm: "Are you sure you want to remove this code challenge?\n(This action cannot be undone.)" } do %>
+            <span class="glyphicon glyphicon-trash"></span>
+          <% end %>
         <% end %>
       </div>
     </header>

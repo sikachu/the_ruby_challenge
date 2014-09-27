@@ -1,18 +1,18 @@
 <% content_for :hero do %>
   <div class="jumbotron">
     <div class="container">
-      <h1>Join the challenge!</h1>
+      <h1>That was a blast!</h1>
       <p>
-        Be part of this challenge! Submit your code samples of your refactoring
-        that yields better code performance. Your submissions will be used in
-        the upcoming
+        Thank you for attending
         <a href="http://rubykaigi.org/2014/presentation/S-PremSichanugrist" target="_blank">The Ruby Challenge</a>
-        show at
+        at
         <a href="http://rubykaigi.org/2014" target="_blank">RubyKaigi 2014</a>.
+        <br />
+        I hope you enjoyed the show. See you again next time!
       </p>
       <p>
-        <%= link_to new_code_challenge_path, class: "btn btn-primary btn-lg", role: "button" do %>
-          Submit your code challenge &raquo;
+        <%= link_to code_challenges_path, class: "btn btn-primary btn-lg", role: "button" do %>
+          See all code challenges &raquo;
         <% end %>
     </div>
   </div>
