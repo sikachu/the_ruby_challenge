@@ -59,3 +59,13 @@ header.navbar {
     margin-bottom: 1em;
   }
 }
+
+.code_challenge {
+  .winner .code pre {
+    border-color: #333;
+  }
+
+  .runtime {
+    padding: 5px 2px;
+  }
+}

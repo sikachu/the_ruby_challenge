@@ -26,10 +26,10 @@
     </header>
     <section class="panel-content">
       <section class="row">
-        <section class="col-md-6">
+        <section class="col-md-6<%= " winner" if code_challenge.left_wins? %>">
           <%= render_code_snippet code_challenge.left_code_sample %>
         </section>
-        <section class="col-md-6">
+        <section class="col-md-6<%= " winner" if code_challenge.right_wins? %>">
           <%= render_code_snippet code_challenge.right_code_sample %>
         </section>
       </section>

@@ -24,10 +24,18 @@
 <p class="submitter"></p>
 
 <%= content_tag_for :section, @code_challenge, class: "row" do %>
-  <section class="col-md-6">
+  <section class="col-md-6<%= " winner" if @code_challenge.left_wins? %>">
     <%= render_code_sample @code_challenge.left_code_sample %>
+    <p class="runtime">
+      <strong>Runtime:</strong>
+      <%= runtime @code_challenge.left_time_usec %>
+    </p>
   </section>
-  <section class="col-md-6">
+  <section class="col-md-6<%= " winner" if @code_challenge.right_wins? %>">
     <%= render_code_sample @code_challenge.right_code_sample %>
+    <p class="runtime">
+      <strong>Runtime:</strong>
+      <%= runtime @code_challenge.right_time_usec %>
+    </p>
   </section>
 <% end %>
