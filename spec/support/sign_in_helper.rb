@@ -9,7 +9,7 @@ module SignInHelper
   end
 
   def sign_in
-    sign_in_as create(:user)
+    sign_in_as create(:user, github_username: "sikachu")
   end
 end
 
